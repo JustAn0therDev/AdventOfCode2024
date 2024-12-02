@@ -26,7 +26,7 @@ void DayOne::LoadLeftAndRightLists(std::vector<int>& leftList, std::vector<int>&
 
 void DayOne::LoadLinesFromFile()
 {
-	this->linesFromInputFile = FileReader::getInputFileLines("input.txt");
+	this->linesFromInputFile = FileReader::getInputFileLines("input_day_one.txt");
 }
 
 unsigned long long DayOne::SolvePartOne()
