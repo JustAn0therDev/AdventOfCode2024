@@ -71,9 +71,16 @@ unsigned long long DayOne::SolvePartTwo()
     {
         int numberOfTimesItAppearedInTheList = 0;
 
-        // TODO: optimize
+        // NOTES: This is unoptimized at best.
+        // We could asside from having them sorted, use a hashmap
+        // or a list of structs (with number and seen times) to check
+        // whether that single number has already been checked.
+        // It would save us some work per iteration each time it goes to check for the next one.
         for (int j = 0; j < rightList.size(); j++)
         {
+            if (leftList[i] < rightList[j])
+                break;
+
             if (leftList[i] == rightList[j])
                 numberOfTimesItAppearedInTheList++;
         }
