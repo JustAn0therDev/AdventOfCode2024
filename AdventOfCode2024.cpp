@@ -3,12 +3,13 @@
 #include <vector>
 #include <algorithm>
 #include <cassert>
-#include "DayOne.h"
+#include "DayTwo.h"
+#include "BaseDay.h"
 
 int main()
 {
-	DayOne dayOne;
-	dayOne.LoadLinesFromFile();
-	std::cout << dayOne.SolvePartOne() << std::endl;
-	std::cout << dayOne.SolvePartTwo() << std::endl;
+	DayTwo day = DayTwo();
+	day.LoadLinesFromFile();
+	std::cout << day.SolvePartOne() << std::endl;
+	std::cout << day.SolvePartTwo() << std::endl;
 }

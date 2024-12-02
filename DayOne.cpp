@@ -3,30 +3,10 @@
 #include <cassert>
 #include <algorithm>
 
-void DayOne::LoadLeftAndRightLists(std::vector<int>& leftList, std::vector<int>& rightList)
-{
-    for (std::string line : this->linesFromInputFile)
-    {
-        char* lineContent = (char*)calloc(line.size() + 1, 1);
-
-        assert(lineContent != 0);
-
-        memcpy(lineContent, line.c_str(), line.size());
-        char* token = strtok(lineContent, "   ");
-
-        leftList.emplace_back(std::stoi(token));
-
-        token = strtok(0, "   ");
-
-        rightList.emplace_back(std::stoi(token));
-
-        free(lineContent);
-    }
-}
-
 void DayOne::LoadLinesFromFile()
 {
-	this->linesFromInputFile = FileReader::getInputFileLines("input_day_one.txt");
+	this->linesFromInputFile = FileReader::GetInputFileLines("input_day_one.txt");
+    assert(this->linesFromInputFile.size() > 0);
 }
 
 unsigned long long DayOne::SolvePartOne()
@@ -89,4 +69,25 @@ unsigned long long DayOne::SolvePartTwo()
     }
 
     return result;
+}
+
+void DayOne::LoadLeftAndRightLists(std::vector<int>& leftList, std::vector<int>& rightList)
+{
+    for (std::string line : this->linesFromInputFile)
+    {
+        char* lineContent = (char*)calloc(line.size() + 1, 1);
+
+        assert(lineContent != 0);
+
+        memcpy(lineContent, line.c_str(), line.size());
+        char* token = strtok(lineContent, "   ");
+
+        leftList.emplace_back(std::stoi(token));
+
+        token = strtok(0, "   ");
+
+        rightList.emplace_back(std::stoi(token));
+
+        free(lineContent);
+    }
 }

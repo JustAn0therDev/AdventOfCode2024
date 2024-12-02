@@ -6,6 +6,6 @@
 class FileReader
 {
 public:
-	static std::vector<std::string> getInputFileLines(const char* fileName);
+	static std::vector<std::string> GetInputFileLines(const char* fileName);
 };
 

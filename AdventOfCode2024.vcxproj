@@ -128,12 +128,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AdventOfCode2024.cpp" />
+    <ClCompile Include="BaseDay.cpp" />
     <ClCompile Include="DayOne.cpp" />
+    <ClCompile Include="DayTwo.cpp" />
     <ClCompile Include="FileReader.cpp" />
+    <ClCompile Include="StringSplitter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseDay.h" />
     <ClInclude Include="DayOne.h" />
+    <ClInclude Include="DayTwo.h" />
     <ClInclude Include="FileReader.h" />
+    <ClInclude Include="StringSplitter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

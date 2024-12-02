@@ -24,12 +24,30 @@
     <ClCompile Include="DayOne.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DayTwo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseDay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StringSplitter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DayOne.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DayTwo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseDay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StringSplitter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
