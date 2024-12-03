@@ -16,9 +16,9 @@ unsigned long long DayTwo::SolvePartOne()
 
 	std::vector<std::vector<int>> reports = GetReportsFromFileLines();
 
-	for (size_t i = 0; i < reports.size(); i++)
+	for (const std::vector<int>& report : reports)
 	{
-		if (IsReportValid(reports[i])) ++safeReports;
+		if (IsReportValid(report)) ++safeReports;
 	}
 
 	return safeReports;
@@ -33,16 +33,16 @@ bool DayTwo::IsReportValid(const std::vector<int>& currentReport)
 		ascending = false;
 	}
 
-	for (size_t j = 0; j < currentReport.size() - 1; j++)
+	for (size_t i = 0; i < currentReport.size() - 1; i++)
 	{
 		if (ascending)
 		{
-			if (currentReport[j] >= currentReport[j + 1])
+			if (currentReport[i] >= currentReport[i + 1])
 			{
 				return false;
 			}
 
-			int diff = currentReport[j + 1] - currentReport[j];
+			int diff = currentReport[i + 1] - currentReport[i];
 
 			if (diff < 1 || diff > 3)
 			{
@@ -51,12 +51,12 @@ bool DayTwo::IsReportValid(const std::vector<int>& currentReport)
 		}
 		else
 		{
-			if (currentReport[j] <= currentReport[j + 1])
+			if (currentReport[i] <= currentReport[i + 1])
 			{
 				return false;
 			}
 
-			int diff = currentReport[j] - currentReport[j + 1];
+			int diff = currentReport[i] - currentReport[i + 1];
 
 			if (diff < 1 || diff > 3)
 			{
@@ -74,10 +74,10 @@ unsigned long long DayTwo::SolvePartTwo()
 
 	std::vector<std::vector<int>> reports = GetReportsFromFileLines();
 
-	for (size_t i = 0; i < reports.size(); i++)
+	for (const std::vector<int>& report : reports)
 	{
-		bool reportIsValid = IsReportValid(reports[i]);
-		bool reportValidWithProblemDampener = IsReportValidWithProblemDampener(reports[i]);
+		bool reportIsValid = IsReportValid(report);
+		bool reportValidWithProblemDampener = IsReportValidWithProblemDampener(report);
 
 		if (reportIsValid || reportValidWithProblemDampener)
 		{
@@ -115,6 +115,8 @@ std::vector<std::vector<int>> DayTwo::GetReportsFromFileLines()
 
 bool DayTwo::IsReportValidWithProblemDampener(const std::vector<int>& currentReport)
 {
+	int unsafeLevelsFound = 0;
+
 	for (size_t i = 0; i < currentReport.size(); ++i)
 	{
 		std::vector<int> reportCopy = currentReport;
@@ -167,7 +169,17 @@ bool DayTwo::IsReportValidWithProblemDampener(const std::vector<int>& currentRep
 
 		if (valid)
 			return true;
+
+		if (IsUnsafeAnyway(unsafeLevelsFound))
+		{
+			return false;
+		}
 	}
 
 	return false;
+}
+
+bool DayTwo::IsUnsafeAnyway(int unsafeLevels)
+{
+	return unsafeLevels >= 2;
 }

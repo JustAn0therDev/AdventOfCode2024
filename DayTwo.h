@@ -6,6 +6,7 @@ class DayTwo : public BaseDay
 private:
 	std::vector<std::vector<int>> GetReportsFromFileLines();
 	bool IsUnsafeEventWithTheProblemDampener(const std::vector<int>& report, int index);
+	bool IsUnsafeAnyway(int unsafeLevels);
 
 public:
 	virtual void LoadLinesFromFile();
