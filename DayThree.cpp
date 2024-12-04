@@ -4,6 +4,9 @@
 #include <regex>
 #include <iostream>
 
+static constexpr const char* DO_CONST = "do()";
+static constexpr const char* DONT_CONST = "don't()";
+
 void DayThree::LoadLinesFromFile()
 {
     this->linesFromInputFile = FileReader::GetInputFileLines("input_day_three.txt");
@@ -73,8 +76,8 @@ unsigned long long DayThree::SolvePartTwo()
 
         while (std::regex_search(searchStart, corruptMemory.cend(), match, mulDontAndDoRegex))
         {
-            bool matchesDont = match[0] == this->DONT_CONST;
-            bool matchesDo = match[0] == this->DO_CONST;
+            bool matchesDont = match[0] == DONT_CONST;
+            bool matchesDo = match[0] == DO_CONST;
 
             if (matchesDont)
             {
