@@ -10,6 +10,6 @@ int main()
 {
 	DayThree day = DayThree();
 	day.LoadLinesFromFile();
-	std::cout << day.SolvePartOne() << std::endl;
-	//std::cout << day.SolvePartTwo() << std::endl;
+	//std::cout << day.SolvePartOne() << std::endl;
+	std::cout << day.SolvePartTwo() << std::endl;
 }
