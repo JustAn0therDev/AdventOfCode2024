@@ -6,6 +6,10 @@
 
 class DayThree : public BaseDay
 {
+private:
+	const char* DO_CONST = "do()";
+	const char* DONT_CONST = "don't()";
+
 public:
 	virtual void LoadLinesFromFile();
 	virtual unsigned long long SolvePartOne();

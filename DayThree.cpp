@@ -13,19 +13,18 @@ void DayThree::LoadLinesFromFile()
 unsigned long long DayThree::SolvePartOne()
 {
     unsigned long long result = 0;
+    
+    const std::basic_regex<char> mulRegex = std::basic_regex<char>("mul\\(\\d{1,3},\\d{1,3}\\)");
 
     for (std::string& corruptMemory : this->linesFromInputFile)
     {
-        std::basic_regex<char> regex = std::basic_regex<char>("mul\\(\\d{1,3},\\d{1,3}\\)");
-
         std::smatch match;
 
         std::string::const_iterator searchStart(corruptMemory.cbegin());
         
-        while (std::regex_search(searchStart, corruptMemory.cend(), match, regex))
+        while (std::regex_search(searchStart, corruptMemory.cend(), match, mulRegex))
         {
             result += GetResultFromCurrentMult(match);
-
             searchStart = match.suffix().first;
         }
     }
@@ -35,9 +34,9 @@ unsigned long long DayThree::SolvePartOne()
 
 unsigned long long DayThree::GetResultFromCurrentMult(std::smatch& match)
 {
-    std::string foundMult = match[0];
+    const std::string foundMult = match[0];
 
-    std::basic_regex<char> numberRegex = std::basic_regex<char>("\\d{1,3}");
+    const std::basic_regex<char> numberRegex = std::basic_regex<char>("\\d{1,3}");
 
     std::string::const_iterator foundMultIteratorBegin(foundMult.cbegin());
 
@@ -64,7 +63,7 @@ unsigned long long DayThree::SolvePartTwo()
     unsigned long long result = 0;
     bool isMulEnabled = true;
 
-    const std::basic_regex<char> regex = std::basic_regex<char>("mul\\(\\d{1,3},\\d{1,3}\\)|don't\\(\\)|do\\(\\)");
+    const std::basic_regex<char> mulDontAndDoRegex = std::basic_regex<char>("mul\\(\\d{1,3},\\d{1,3}\\)|don't\\(\\)|do\\(\\)");
 
     for (std::string& corruptMemory : this->linesFromInputFile)
     {
@@ -72,17 +71,20 @@ unsigned long long DayThree::SolvePartTwo()
 
         std::string::const_iterator searchStart(corruptMemory.cbegin());
 
-        while (std::regex_search(searchStart, corruptMemory.cend(), match, regex))
+        while (std::regex_search(searchStart, corruptMemory.cend(), match, mulDontAndDoRegex))
         {
-            if (match[0] == "don't()")
+            bool matchesDont = match[0] == this->DONT_CONST;
+            bool matchesDo = match[0] == this->DO_CONST;
+
+            if (matchesDont)
             {
                 isMulEnabled = false;
             }
-            else if (match[0] == "do()")
+            else if (matchesDo)
             {
                 isMulEnabled = true;
             }
-            else if (isMulEnabled && match.str().find("mul") != std::string::npos)
+            else if (isMulEnabled && !matchesDont && !matchesDo)
             {
                 result += GetResultFromCurrentMult(match);
             }
