@@ -76,8 +76,8 @@ unsigned long long DayThree::SolvePartTwo()
 
         while (std::regex_search(searchStart, corruptMemory.cend(), match, mulDontAndDoRegex))
         {
-            bool matchesDont = match[0] == DONT_CONST;
-            bool matchesDo = match[0] == DO_CONST;
+            const bool matchesDont = match[0] == DONT_CONST;
+            const bool matchesDo = match[0] == DO_CONST;
 
             if (matchesDont)
             {
