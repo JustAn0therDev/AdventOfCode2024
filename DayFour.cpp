@@ -20,63 +20,14 @@ unsigned long long DayFour::SolvePartOne()
 		{
 			if (this->linesFromInputFile[i][j] == 'X')
 			{
-				int right = HasXmasToTheRight(i, j);
-				int left = HasXmasToTheLeft(i, j);
-				int upperRight = HasXmasUpperRight(i, j);
-				int upperLeft = HasXmasUpperLeft(i, j);
-				int downRight = HasXmasDownRight(i, j);
-				int downLeft = HasXmasDownLeft(i, j);
-				int straightDown = HasXmasStraightDown(i, j);
-				int straightUp = HasXmasStraightUp(i, j);
-
-				//if (right)
-				//{
-				//	std::cout << "Found XMAS to the right. Indexes: " << i << ", " << j << std::endl;
-				//}
-
-				//if (left)
-				//{
-				//	std::cout << "Found XMAS to the left. Indexes: " << i << ", " << j << std::endl;
-				//}
-
-				//if (upperRight)
-				//{
-				//	std::cout << "Found XMAS upper right. Indexes: " << i << ", " << j << std::endl;
-				//}
-
-				//if (upperLeft)
-				//{
-				//	std::cout << "Found XMAS upper left. Indexes: " << i << ", " << j << std::endl;
-				//}
-
-				//if (downRight)
-				//{
-				//	std::cout << "Found XMAS down right. Indexes: " << i << ", " << j << std::endl;
-				//}
-
-				//if (downLeft)
-				//{
-				//	std::cout << "Found XMAS down left. Indexes: " << i << ", " << j << std::endl;
-				//}
-
-				//if (straightDown)
-				//{
-				//	std::cout << "Found XMAS straight down. Indexes: " << i << ", " << j << std::endl;
-				//}
-
-				//if (straightUp)
-				//{
-				//	std::cout << "Found XMAS straight up. Indexes: " << i << ", " << j << std::endl;
-				//}
-
-				count += right;
-				count += left;
-				count += upperLeft;
-				count += upperRight;
-				count += downLeft;
-				count += downRight;
-				count += straightUp;
-				count += straightDown;
+				count += HasXmasToTheRight(i, j);
+				count += HasXmasToTheLeft(i, j);
+				count += HasXmasUpperRight(i, j);
+				count += HasXmasUpperLeft(i, j);
+				count += HasXmasDownRight(i, j);
+				count += HasXmasDownLeft(i, j);
+				count += HasXmasStraightDown(i, j);
+				count += HasXmasStraightUp(i, j);
 			}
 		}
 	}
