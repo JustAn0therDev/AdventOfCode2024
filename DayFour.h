@@ -17,5 +17,9 @@ public:
 	int HasXmasDownLeft(int row, int column);
 	int HasXmasStraightDown(int row, int column);
 	int HasXmasStraightUp(int row, int column);
+	char CharOnUpperRight(int row, int column);
+	char CharOnUpperLeft(int row, int column);
+	char CharOnDownRight(int row, int column);
+	char CharOnDownLeft(int row, int column);
 };
 

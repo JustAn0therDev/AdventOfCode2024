@@ -14,8 +14,6 @@ unsigned long long DayFour::SolvePartOne()
 {
 	unsigned long long count = 0;
 
-	unsigned long long currentXmasIndex = 0;
-
 	for (size_t i = 0; i < this->linesFromInputFile.size(); i++)
 	{
 		for (size_t j = 0; j < this->linesFromInputFile[i].size(); j++)
@@ -368,5 +366,104 @@ int DayFour::HasXmasStraightUp(int row, int column)
 
 unsigned long long DayFour::SolvePartTwo()
 {
-	return 0;
+	unsigned long long count = 0;
+
+	for (size_t i = 0; i < this->linesFromInputFile.size(); i++)
+	{
+		for (size_t j = 0; j < this->linesFromInputFile[i].size(); j++)
+		{
+			if (this->linesFromInputFile[i][j] == 'A')
+			{
+				char upperRightChar = CharOnUpperRight(i, j);
+				char downLeftCharShouldBe = '\0';
+
+				if (upperRightChar == 'M')
+				{
+					downLeftCharShouldBe = 'S';
+				}
+				else if (upperRightChar == 'S')
+				{
+					downLeftCharShouldBe = 'M';
+				}
+				else
+				{
+					continue;
+				}
+
+				char downLeftChar = CharOnDownLeft(i, j);
+
+				if (downLeftChar != downLeftCharShouldBe)
+				{
+					continue;
+				}
+
+				char upperLeftChar = CharOnUpperLeft(i, j);
+				char downRightCharShouldBe = '\0';
+
+				if (upperLeftChar == 'M')
+				{
+					downRightCharShouldBe = 'S';
+				}
+				else if (upperLeftChar == 'S')
+				{
+					downRightCharShouldBe = 'M';
+				}
+				else
+				{
+					continue;
+				}
+
+				char downRightChar = CharOnDownRight(i, j);
+
+				if (downRightChar != downRightCharShouldBe)
+				{
+					continue;
+				}
+
+				count++;
+			}
+		}
+	}
+
+	return count;
+}
+
+char DayFour::CharOnUpperRight(int row, int column)
+{
+	if (--row > -1 && ++column < this->linesFromInputFile[row].size())
+	{
+		return this->linesFromInputFile[row][column];
+	}
+
+	return '\0';
+}
+
+char DayFour::CharOnUpperLeft(int row, int column)
+{
+	if (--row > -1 && --column > -1)
+	{
+		return this->linesFromInputFile[row][column];
+	}
+
+	return '\0';
+}
+
+char DayFour::CharOnDownRight(int row, int column)
+{
+	if (++row < this->linesFromInputFile.size() && ++column < this->linesFromInputFile[row].size())
+	{
+		return this->linesFromInputFile[row][column];
+	}
+
+	return '\0';
+}
+
+char DayFour::CharOnDownLeft(int row, int column)
+{
+	if (++row < this->linesFromInputFile.size() && --column > -1)
+	{
+		return this->linesFromInputFile[row][column];
+	}
+
+	return '\0';
 }
