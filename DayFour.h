@@ -6,9 +6,9 @@
 class DayFour : public BaseDay
 {
 public:
-	virtual void LoadLinesFromFile();
-	virtual unsigned long long SolvePartOne();
-	virtual unsigned long long SolvePartTwo();
+	void LoadLinesFromFile() override;
+	unsigned long long SolvePartOne() override;
+	unsigned long long SolvePartTwo() override;
 	int HasXmasToTheRight(int row, int column);
 	int HasXmasToTheLeft(int row, int column);
 	int HasXmasUpperRight(int row, int column);

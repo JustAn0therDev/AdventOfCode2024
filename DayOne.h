@@ -10,8 +10,8 @@ private:
 	void LoadLeftAndRightLists(std::vector<int>& leftList, std::vector<int>& rightList);
 
 public:
-	virtual void LoadLinesFromFile();
-	virtual unsigned long long SolvePartOne();
-	virtual unsigned long long SolvePartTwo();
+	void LoadLinesFromFile() override;
+	unsigned long long SolvePartOne() override;
+	unsigned long long SolvePartTwo() override;
 };
 

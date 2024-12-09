@@ -39,6 +39,9 @@
     <ClCompile Include="DayFour.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DayFive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileReader.h">
@@ -60,6 +63,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DayFour.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DayFive.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

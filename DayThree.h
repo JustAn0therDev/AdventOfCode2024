@@ -7,9 +7,9 @@
 class DayThree : public BaseDay
 {
 public:
-	virtual void LoadLinesFromFile();
-	virtual unsigned long long SolvePartOne();
+	void LoadLinesFromFile() override;
+	unsigned long long SolvePartOne() override;
 	unsigned long long GetResultFromCurrentMult(std::smatch& match);
-	virtual unsigned long long SolvePartTwo();
+	unsigned long long SolvePartTwo() override;
 };
 
