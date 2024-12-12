@@ -33,8 +33,6 @@ unsigned long long DayFive::SolvePartOne()
 		}
 		else
 		{
-			// Check if any of the numbers in the list of any of the maps are behind the current one
-
 			std::vector<std::string> splitString = StringSplitter::Split(line, ",");
 
 			bool isValidSequence = true;
@@ -64,11 +62,6 @@ unsigned long long DayFive::SolvePartOne()
 			}
 		}
 	}
-
-	//for (const auto& pair : pageOrderMap)
-	//{
-	//	printf("%s: %s\n", std::to_string(pair.first).c_str(), GetJoined(pair.second).c_str());
-	//}
 
 	return result;
 }
@@ -126,8 +119,6 @@ unsigned long long DayFive::SolvePartTwo()
 		}
 		else
 		{
-			// Check if any of the numbers in the list of any of the maps are behind the current one
-
 			std::vector<std::string> splitString = StringSplitter::Split(line, ",");
 
 			bool isValidSequence = true;
@@ -165,11 +156,6 @@ unsigned long long DayFive::SolvePartTwo()
 		}
 	}
 
-	//for (const auto& pair : pageOrderMap)
-	//{
-	//	printf("%s: %s\n", std::to_string(pair.first).c_str(), GetJoined(pair.second).c_str());
-	//}
-
 	return result;
 }
 
@@ -191,7 +177,7 @@ unsigned long long DayFive::GetMiddleNumberAfterReorderingIncorrectSequence(std:
 				int tmp = numBehind;
 				incorrectOrder[j] = num;
 
-				for (int k = j + 1; k < incorrectOrder.size() - 1; k++)
+				for (size_t k = static_cast<size_t>(j + 1); k < incorrectOrder.size() - 1; k++)
 				{
 					int thisNum = incorrectOrder[k + 1];
 					incorrectOrder[k] = tmp;

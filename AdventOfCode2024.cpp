@@ -4,12 +4,12 @@
 #include <algorithm>
 #include <cassert>
 #include "BaseDay.h"
-#include "DayFive.h"
+#include "DaySix.h"
 
 int main()
 {
-	DayFive day = DayFive();
+	DaySix day = DaySix();
 	day.LoadLinesFromFile();
-	//std::cout << day.SolvePartOne() << std::endl;
-	std::cout << day.SolvePartTwo() << std::endl;
+	std::cout << day.SolvePartOne() << std::endl;
+	//std::cout << day.SolvePartTwo() << std::endl;
 }
